@@ -1,0 +1,20 @@
+<nav>
+    <a class="simple_link" [routerLink]="['']">Retour accueil</a>
+    <ul id="sidemenu">
+        <li><a [routerLink]="['dashboard']">Tableau de bord</a></li>
+        <li>> Utilisateur</li>
+        <ul>
+            <li><a [routerLink]="['user']">Liste des utilisateurs</a></li>
+            <li><a [routerLink]="['user/add']">Ajouter un utilisateur</a></li>
+        </ul>
+        <li>> Catways</li>
+        <ul>
+            <li><a [routerLink]="['catways']">Listes des Catways</a></li>
+            <li><a [routerLink]="['catways/add']">Ajouter un Catways</a></li>
+        </ul>
+        <li>> Réservations</li>
+        <ul>
+            <li><a [routerLink]="['reservations']">Liste des réservations</a></li>
+        </ul>
+    </ul>
+</nav>
