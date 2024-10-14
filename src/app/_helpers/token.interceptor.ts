@@ -10,7 +10,7 @@ const token = inject(TokenService).getToken();
 //Si token, clonage et  modification de la requête
 if(token){
   const newReq = req.clone({
-    headers: req.headers.append('Authorization', token)
+    headers: req.headers.append('Authorization','Bearer'+ token)
 });
 return next(newReq)
 } else {

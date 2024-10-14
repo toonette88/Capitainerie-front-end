@@ -1,1 +1,15 @@
-<p>c-edit works!</p>
+<div>
+    <h1>Modification de l'état du catway {{ catway.catwayNumber }}</h1>
+    <form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
+        <div class="form-group">
+            <label for="catwayState">Etat :</label>
+            <input type="text" id="catwayState"
+            name="catwaystate"
+            [(ngModel)]="catway.catwayState"
+            #nom="ngModel"
+            >
+        </div>
+    </form>
+</div>
+
+

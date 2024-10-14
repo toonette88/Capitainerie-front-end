@@ -1,22 +1,26 @@
-import { HttpClient } from '@angular/common/http';
+import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CatwayService } from '../../../_services/catway.service';
 
 @Component({
   selector: 'app-c-index',
   standalone: true,
-  imports: [],
+  imports: [NgForOf, RouterLink],
   templateUrl: './c-index.component.html',
   styleUrl: './c-index.component.css'
 })
 export class CIndexComponent {
 
-  constructor(private http: HttpClient) { }
+  catwaysList: any[] = []
+  constructor(private catwayService: CatwayService) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/catways/').subscribe(
-      data => console.log(data),
-      err => console.error(err)
-    )
+    this.catwayService.getAllCatways().subscribe(
+      catways => {
+        console.log(catways),
+        this.catwaysList = catways.data
+      })
   }
 
 }
