@@ -1,10 +1,7 @@
-import { StringifyOptions } from "querystring";
-
 export interface ICatway {
-    catwayNumber: number,
-    type: string,
-    catwayState: string,
-    _id: string | null,
+    catwayNumber: Number,
+    type: String,
+    catwayState: String,
 }
 
 export interface ISingleCatway {

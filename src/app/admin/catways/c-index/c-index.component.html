@@ -7,8 +7,8 @@
               <h5 class="card-title">Catway numéro {{catway.catwayNumber}}</h5>
               <p class="card-text">Type: {{catway.type}}</p>
               <p class="card-text">Etat: {{catway.catwayState}}</p>
-              <button><a [routerLink]="['edit', catway._id]">Modifier</a></button>
-              <button><a [routerLink]="['delete', catway._id]">Supprimer</a></button>
+              <button><a [routerLink]="['edit', catway.catwayNumber]">Modifier</a></button>
+              <button><a [routerLink]="['delete', catway.catwayNumber]">Supprimer</a></button>
             </div>
           </div>
         </div>

@@ -1,1 +1,14 @@
-<p>u-index works!</p>
+<div>
+    <h1>Liste des Utilisateurs</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let user of userList" class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Nom:  {{user.name}}</h5>
+              <p class="card-text">Email: {{user.email}}</p>
+              <p class="card-text">Créé le:: {{user.createdAt | date:'dd/MM/yyyy'}}</p>
+              <p class="card-text">Modifié le:: {{user.updatedAt  | date:'dd/MM/yyyy'}}</p>
+              
+            </div>
+          </div>
+        </div>

@@ -15,8 +15,7 @@ export class CEditComponent {
   catway: ICatway = {
     catwayNumber: 0,
     catwayState: '',
-    type: '',
-    _id: null,
+    type: ''
   }
     
   constructor(
@@ -27,13 +26,12 @@ export class CEditComponent {
   ngOnInit(): void {
     let id= this.activated.snapshot.paramMap.get('id')
     console.log(id)
-
     this.catwayService.getCatway(id).subscribe(
       data => {
         console.log(data)
         this.catway = data.data
-    
-    })}
+    })
+  }
 
   onSubmit(): void{
     console.log(this.catway)

@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CatwayService } from '../../../_services/catway.service';
+import { ICatway } from '../../../_interfaces/catway';
 
 @Component({
   selector: 'app-c-index',
@@ -12,7 +13,7 @@ import { CatwayService } from '../../../_services/catway.service';
 })
 export class CIndexComponent {
 
-  catwaysList: any[] = []
+  catwaysList: ICatway[] = []
   constructor(private catwayService: CatwayService) { }
 
   ngOnInit(): void {
