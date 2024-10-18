@@ -1,1 +1,16 @@
-<p>r-index works!</p>
+<div>
+    <h1>Liste des Réservations</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let reservation of reservationsList" class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Catway numéro :{{reservation.catwayNumber}}</h5>
+              <p class="card-text">Nom du client :{{reservation.clientName}}</p>
+              <p class="card-text">Nom du bateau : {{reservation.boatName}}</p>
+              <p class="card-text">Date de location : {{reservation.checkIn | date:'dd/MM/yyyy'}}</p>
+              <p class="card-text">Date de fin de location : {{reservation.checkOut | date:'dd/MM/yyyy'}}</p>
+              <button (click)="close(reservation._id)">Supprimer</button>
+            </div>
+          </div>
+        </div>
+</div>

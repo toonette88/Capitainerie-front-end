@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IDataUser, ISingleUser } from '../_interfaces/user';
+import { IDataUser, IUser } from '../_interfaces/user';
 import { Observable } from 'rxjs';
+import { IApi } from '../_interfaces/api';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,19 @@ export class UserService {
     return this.http.get<IDataUser>(this.url)
   }
 
-  getUser(id: string | null){
-    return this.http.get<ISingleUser>(this.url+'/'+id)
+  getUser(id: string | null): Observable<IUser>{
+    return this.http.get<IUser>(this.url+'/'+id)
   }
 
-  addUser(){}
+  addUser(user: IUser): Observable<IApi>{
+    return this.http.put<IApi>(this.url+'/add', user)
+  }
 
-  updateUser(){}
+  updateUser(user: IUser): Observable<IApi>{
+    return this.http.put<IApi>(this.url+'/'+user._id, user)
+  }
 
-  deleteUser(){}
+  deleteUser(id: string | null): Observable<IApi>{
+    return this.http.delete<IApi>(this.url+'/'+id)
+}
 }

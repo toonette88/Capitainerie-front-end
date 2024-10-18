@@ -1,15 +1,16 @@
 export interface IUser {
-    createdAt:string,
+    createdAt?:string,
     email: string,
     name: string,
     password: string,
-    updatedAt: string,
+    updatedAt?: string,
+    _id?: string,
 }
 
 export interface ISingleUser {
     data: IUser
 }
 
-export interface IDataUser{
+export interface IDataUser {
     data: IUser[]
 }

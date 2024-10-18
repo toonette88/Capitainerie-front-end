@@ -1,13 +1,16 @@
 <div>
-    <h1>Modification de l'état du catway {{ catway.catwayNumber }}</h1>
+    <h1>Modification de l'état du catway {{ catway.catwayNumber }} </h1>
     <form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
         <div class="form-group">
             <label for="catwayState">Etat :</label>
             <input type="text" id="catwayState"
-            name="catwaystate"
+            name="catwayState"
             [(ngModel)]="catway.catwayState"
-            #nom="ngModel"
+            #catwayState="ngModel"
             >
+        </div>
+        <div class="form-group">
+            <button type="submit">Modifier</button>
         </div>
     </form>
 </div>

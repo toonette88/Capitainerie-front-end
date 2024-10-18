@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ICatway } from '../../../_interfaces/catway';
+import { CatwayService } from '../../../_services/catway.service';
 
 @Component({
   selector: 'app-c-add',
@@ -9,4 +11,17 @@ import { Component } from '@angular/core';
 })
 export class CAddComponent {
 
+  catway: ICatway = {
+    catwayNumber: '',
+    type: '',
+    catwayState: '',
+  }
+
+  constructor( private catwayService: CatwayService){}
+
+  onSubmit(){
+    this.catwayService.addCatway(this.catway).subscribe(
+      data => console.log(data.message)
+    )
+  }
 }

@@ -14,6 +14,7 @@ import { ICatway } from '../../../_interfaces/catway';
 export class CIndexComponent {
 
   catwaysList: ICatway[] = []
+  
   constructor(private catwayService: CatwayService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,15 @@ export class CIndexComponent {
         console.log(catways),
         this.catwaysList = catways.data
       })
+  }
+
+  delete(id: string | undefined) {
+    if (id)
+      this.catwayService.deleteCatway(id).subscribe(
+        data => {
+          this.ngOnInit()
+        }
+      )
   }
 
 }

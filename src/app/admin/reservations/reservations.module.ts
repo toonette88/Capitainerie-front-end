@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    NgForOf,
+    RouterLink,
   ]
 })
 export class ReservationsModule { }

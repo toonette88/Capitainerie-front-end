@@ -1,13 +1,13 @@
-import { Component, NgModule } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UserService } from '../../../_services/user.service';
 import { IUser } from '../../../_interfaces/user';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-u-edit',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './u-edit.component.html',
   styleUrl: './u-edit.component.css'
 })
@@ -19,6 +19,7 @@ export class UEditComponent {
     name: '',
     password: '',
     updatedAt: '',
+    _id: '',
   }
 
   constructor(
@@ -31,12 +32,15 @@ export class UEditComponent {
     console.log(id)
     this.userService.getUser(id).subscribe(
       data => {
-        console.log(data)
-        this.user = data.data
+        this.user = data
       }
     )
     
   }
-  onSubmit(){}
+  onSubmit(): void{
+    this.userService.updateUser(this.user).subscribe(
+      data => console.log(data.message)
+    )
+  }
 
 }

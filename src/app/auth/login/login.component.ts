@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(): void{
-    console.log(this.form)
     this.authService.authenticate(this.form).subscribe(
        data => {
         console.log(data.access_token)

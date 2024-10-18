@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 })
 export class TokenService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router
+  
+  ) { }
 
   
   saveToken(token: string): void{
@@ -16,7 +18,6 @@ export class TokenService {
 
   isLogged(): boolean{
     const token = localStorage.getItem('token')
-    console.log(token)
     return !! token
   }
 
@@ -27,5 +28,10 @@ export class TokenService {
 
   getToken(): string | null {
     return localStorage.getItem('token')
+  }
+
+  clearTokenExpired(): void{
+    localStorage['removedItem']('token')
+    this.router.navigate(['auth'])
   }
 }

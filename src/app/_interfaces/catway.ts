@@ -1,7 +1,8 @@
 export interface ICatway {
-    catwayNumber: Number,
-    type: String,
-    catwayState: String,
+    catwayNumber: string,
+    type: string,
+    catwayState: string,
+    _id?: string,
 }
 
 export interface ISingleCatway {

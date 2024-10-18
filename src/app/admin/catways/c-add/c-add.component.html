@@ -1,1 +1,32 @@
-<p>c-add works!</p>
+<div>
+    <h1>Ajout d'un catway </h1>
+    <form>
+        <div class="form-group">
+            <label for="catwayNumber">Numéro du Catway</label>
+            <input type="text" id="catwayNumber"
+            name="catwayNumber"
+            >
+        </div>
+        <fieldset>
+            <legend>Sélectionnez le type:</legend>
+            <div>
+              <input type="radio" id="short" name="type" value="short" checked />
+              <label for="short">short</label>
+            </div>
+          
+            <div>
+              <input type="radio" id="long" name="type" value="long" />
+              <label for="long">long</label>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <label for="catwayState">Etat :</label>
+            <input type="text" id="catwayState"
+            name="catwayState"
+            >
+        </div>
+        <div class="form-group">
+            <button type="submit">Modifier</button>
+        </div>
+    </form>
+</div>

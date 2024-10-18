@@ -7,7 +7,7 @@ import { UDeleteComponent } from './u-delete/u-delete.component';
 export const userRoutes: Routes = [
     
     {path: '', component: UIndexComponent},
-    {path: 'edit/:uid', component: UEditComponent},
+    {path: 'edit/:id', component: UEditComponent},
     {path:'add', component: UAddComponent},
-    {path:'delete/:uid', component: UDeleteComponent}
+    {path:'delete/:id', component: UDeleteComponent}
 ]

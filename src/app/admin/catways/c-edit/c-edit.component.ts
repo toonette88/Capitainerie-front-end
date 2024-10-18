@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CatwayService } from '../../../_services/catway.service';
 import { ICatway } from '../../../_interfaces/catway';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-c-edit',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './c-edit.component.html',
   styleUrl: './c-edit.component.css'
 })
 export class CEditComponent {
+  
   catway: ICatway = {
-    catwayNumber: 0,
+    catwayNumber: '',
     catwayState: '',
-    type: ''
+    type: '',
+    _id: '',
   }
     
   constructor(
@@ -28,12 +31,14 @@ export class CEditComponent {
     console.log(id)
     this.catwayService.getCatway(id).subscribe(
       data => {
-        console.log(data)
-        this.catway = data.data
+        this.catway = data
     })
   }
 
   onSubmit(): void{
-    console.log(this.catway)
+    this.catwayService.updateCatway(this.catway).subscribe(
+      data => console.log(data.message)
+    )
+    
   }
 }

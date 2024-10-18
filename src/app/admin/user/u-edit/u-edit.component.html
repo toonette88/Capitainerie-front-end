@@ -1,26 +1,25 @@
-<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
-    <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" id="name"
-            name="name"
-            [(ngModel)]="user.name"
-            #name="ngModel"
-        >
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" id="email"
-            name="email"
-            [(ngModel)]="user.email"
-            #email="ngModel"
-        >
-    </div>
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password"
-            name="password"
-            [(ngModel)]="user.password"
-            #password="ngModel"
-        >
-    </div>
+<div>
+    <h1>Modification de l'utilisateur</h1>
+    <form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
+        <div class="form-group">
+            <label for="name">Nom :</label>
+            <input type="text" id="name"
+                name="name"
+                [(ngModel)]="user.name"
+                #name="ngModel"
+            >
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email"
+                name="email"
+                [(ngModel)]="user.email"
+                #email="ngModel"
+            >
+        </div>
+        <div class="form-group">
+            <button type="submit">Modifier</button>
+        </div>
+    </form>
+</div>
 

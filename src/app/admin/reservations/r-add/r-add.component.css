@@ -1,0 +1,20 @@
+.form-group{
+    margin: 30px;
+}
+
+label{
+    margin: 10px;
+
+}
+
+.form-control{
+    padding: 5px 10 px;
+    background-color: antiquewhite;
+    border-color: black;
+    width: 50 px;
+    height: 30 px;
+}
+
+option:hover{
+    background-color: white;
+}

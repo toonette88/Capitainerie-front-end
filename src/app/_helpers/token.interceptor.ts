@@ -1,26 +1,35 @@
-import { HttpHandlerFn, HttpRequest } from "@angular/common/http";
-import { inject } from "@angular/core";
+import { 
+  HttpEvent, 
+  HttpInterceptor, 
+  HttpRequest,
+  HttpHeaders,
+  HTTP_INTERCEPTORS, 
+  HttpHandler
+} from "@angular/common/http";
 import { TokenService } from "../_services/token.service";
+import { catchError, Observable, Subject, throwError } from "rxjs";
+import { Injectable } from "@angular/core";
+import { ApiErrorService } from "../_subjects/api-error.service";
 
-export function tokenInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) {
+@Injectable()
+export class TokenInterceptor implements HttpInterceptor {
 
-  //Injection du serviceToken et obtention du token
-const token = inject(TokenService).getToken();
+  constructor (private tokenService: TokenService) {}
 
-//Si token, clonage et  modification de la requête
-if(token){
-  const newReq = req.clone({
-    headers: req.headers.append('Authorization','Bearer'+ token)
-});
-return next(newReq)
-} else {
-
-  return next(req)
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const headers = new HttpHeaders()
+      .append('Authorization', `Bearer ${this.tokenService.getToken()}`);
+    const modifiedReq = req.clone({ headers });
+    return next.handle(modifiedReq);
+  }
 }
 
-
-
-
-}
+export const TokenInterceptorProvider =[
+   {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+]
 
 

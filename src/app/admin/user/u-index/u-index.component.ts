@@ -15,13 +15,22 @@ export class UIndexComponent {
 
   userList: IUser[] = []
 
-  constructor(private UserService: UserService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void{
-    this.UserService.getAllUsers().subscribe(
+    this.userService.getAllUsers().subscribe(
       data => {
         console.log(data)
         this.userList = data.data
+      }
+    )
+  }
+
+  delete(id: string | undefined ){
+    if (id)
+    this.userService.deleteUser(id).subscribe(
+      data => {
+        this.ngOnInit()
       }
     )
   }
