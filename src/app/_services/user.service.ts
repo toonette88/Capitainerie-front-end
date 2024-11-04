@@ -9,7 +9,7 @@ import { IApi } from '../_interfaces/api';
 })
 export class UserService {
 
-  url= 'http://localhost:3000/users'
+  url= 'https://capitainerie.onrender.com/users'
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class UserService {
   }
 
   addUser(user: IUser): Observable<IApi>{
-    return this.http.put<IApi>(this.url+'/add', user)
+    return this.http.post<IApi>(this.url+'/add', user)
   }
 
   updateUser(user: IUser): Observable<IApi>{

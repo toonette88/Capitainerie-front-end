@@ -8,7 +8,7 @@ import { IToken } from '../_interfaces/token';
 })
 export class AuthService {
 
-  url = 'http://localhost:3000/users/authenticate' 
+  url = 'https://capitainerie.onrender.com/users/authenticate' 
 
   constructor(private http: HttpClient) { }
 

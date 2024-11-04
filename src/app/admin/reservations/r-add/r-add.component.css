@@ -9,9 +9,9 @@ label{
 
 .form-control{
     padding: 5px 10 px;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
     border-color: black;
-    width: 50 px;
+    width: 50px;
     height: 30 px;
 }
 

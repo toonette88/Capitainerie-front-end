@@ -25,11 +25,10 @@ export class RIndexComponent {
     )
   }
 
-  close(id: string | undefined){
-    console.log(id)
-    this.reservationService.closeReservation(id).subscribe(
+  delete(id: string | undefined ){
+    if (id)
+    this.reservationService.deleteReservation(id).subscribe(
       data => {
-        console.log(data)
         this.ngOnInit()
   })
   }

@@ -1,9 +1,9 @@
 nav{
-    padding-left: 10px;
+    padding: 10px;
 }
 #sidemenu{
     list-style: none;
-    padding: 0px
+    padding: 5px
 }
 
 #sidemenu ul{

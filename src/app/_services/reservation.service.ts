@@ -9,7 +9,7 @@ import { IApi } from '../_interfaces/api';
 })
 export class ReservationService {
 
-  url = 'http://localhost:3000/reservations'
+  url = 'https://capitainerie.onrender.com//reservations'
 
   constructor(private http : HttpClient) {  }
 
@@ -22,10 +22,10 @@ export class ReservationService {
   }
 
   addReservation(reservation: IReservation): Observable<IApi>{
-    return this.http.put<IApi>(this.url, reservation)
+    return this.http.post<IApi>(this.url+'/add', reservation)
   }
 
-  closeReservation(id: string |undefined): Observable<IApi>{
+  deleteReservation(id: string | undefined ): Observable<IApi>{
     return this.http.delete<IApi>(this.url+'/'+id)
   }
 }

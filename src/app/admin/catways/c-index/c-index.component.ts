@@ -25,7 +25,7 @@ export class CIndexComponent {
       })
   }
 
-  delete(id: string | undefined) {
+  delete(id: string | undefined ) {
     if (id)
       this.catwayService.deleteCatway(id).subscribe(
         data => {

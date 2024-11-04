@@ -3,9 +3,14 @@
 }
 
 .menu{
-    flex-grow: 1;
+    flex-grow: 2;
 }
 
 .admin_container{
     flex-grow: 6;
+    padding-right: 20px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    margin-right: 10px;
 }
