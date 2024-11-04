@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgModule
   ]
 })
 export class UserModule { }

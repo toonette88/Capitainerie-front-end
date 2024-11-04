@@ -22,10 +22,10 @@ export class ReservationService {
   }
 
   addReservation(reservation: IReservation): Observable<IApi>{
-    return this.http.put<IApi>(this.url, reservation)
+    return this.http.post<IApi>(this.url+'/add', reservation)
   }
 
-  closeReservation(id: string |undefined): Observable<IApi>{
+  deleteReservation(id: string | undefined ): Observable<IApi>{
     return this.http.delete<IApi>(this.url+'/'+id)
   }
 }

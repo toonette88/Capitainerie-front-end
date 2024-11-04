@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgForOf } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 
@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   declarations: [],
   imports: [
     CommonModule,
-    NgForOf,
+    NgFor,
     RouterLink,
   ]
 })

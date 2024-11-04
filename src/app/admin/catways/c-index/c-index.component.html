@@ -1,10 +1,10 @@
 <div>
-    <h1>Liste des Catways</h1>
+    <h2>Liste des Catways</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div *ngFor="let catway of catwaysList" class="col">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Catway numéro {{catway.catwayNumber}}</h5>
+              <h3 class="card-title">Catway numéro {{catway.catwayNumber}}</h3>
               <p class="card-text">Type: {{catway.type}}</p>
               <p class="card-text">Etat: {{catway.catwayState}}</p>
               <button><a [routerLink]="['edit', catway._id]">Modifier</a></button>

@@ -28,7 +28,7 @@ export class CatwayService {
   }
 
   addCatway(catway: ICatway): Observable<IApi>{
-    return this.http.put<IApi>(this.url, catway)
+    return this.http.post<IApi>(this.url+'/add', catway)
   }
 
   updateCatway(catway: ICatway): Observable<IApi>{

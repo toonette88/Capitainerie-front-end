@@ -22,7 +22,7 @@ export class UserService {
   }
 
   addUser(user: IUser): Observable<IApi>{
-    return this.http.put<IApi>(this.url+'/add', user)
+    return this.http.post<IApi>(this.url+'/add', user)
   }
 
   updateUser(user: IUser): Observable<IApi>{

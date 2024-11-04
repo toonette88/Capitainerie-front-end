@@ -1,33 +1,46 @@
 import { Component } from '@angular/core';
-import { ICatway } from '../../../_interfaces/catway';
 import { CatwayService } from '../../../_services/catway.service';
-import { NgFor } from '@angular/common';
-import { concat } from 'rxjs';
+import { CommonModule, NgFor } from '@angular/common';
+import { __values } from 'tslib';
+import { ICatway } from '../../../_interfaces/catway';
+import { IReservation } from '../../../_interfaces/reservation';
+import { ReservationService } from '../../../_services/reservation.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-r-add',
   standalone: true,
-  imports: [NgFor],
+  imports: [CommonModule, NgFor, FormsModule],
   templateUrl: './r-add.component.html',
   styleUrl: './r-add.component.css'
 })
 export class RAddComponent {
 
-  catwayNumberList: number[] = []
-
-  constructor( 
+  catwaysList: ICatway[] = []
+  reservation: IReservation ={
+    catwayNumber: '',
+    clientName: '', 
+    boatName:'' , 
+  }
+  
+  constructor(
     private catwayService: CatwayService,
-  ) {}
+    private reservationService: ReservationService
+  ) { }
 
-
-  ngOnInit() : void {
-    this.catwayService.getAllCatwaysNumber().subscribe(
+  ngOnInit(): void {
+    this.catwayService.getAllCatways().subscribe(
       catways => {
-        console.log(catways)
-        this.catwayNumberList
+        console.log(catways),
+        this.catwaysList = catways.data
       })
-    }  
-    
-    ngOptions = this.catwayNumberList  
+  }
 
+  onSubmit() {
+    this.reservationService.addReservation(this.reservation).subscribe(
+      data => console.log(data)
+    )
+  }
+ 
+    
 }
